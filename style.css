@@ -49,7 +49,7 @@ html {
     cursor:default;
     --color-white: #fff;
     --color-black: #000;
-    --color-dark-mode:#141414;
+    --color-dark-mode:#1c1128;
     --color-light-mode:#ece7e1;
     --color-ddd-color: #ddd;
     --color-gray: #c4c4c4;
@@ -62,29 +62,71 @@ html {
 
 
 #bubleImg {
-    
-    position: absolute;
+    z-index: 0;
+    position: fixed;
+    border-radius: 16px;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.3; /* Adjust the opacity value as needed (between 0 and 1) */
+    opacity: 0.05; /* Adjust the opacity value as needed (between 0 and 1) */
 }
 
 
 
 .lottie-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: auto; /* 100% of the viewport width */
+   
+    display: none; /* Initially hide the container */
+    z-index: -1;
+    position: fixed; /* Make sure it's positioned absolutely */
+    top: 50%; /* Initially position it at the vertical center */
+    left: 50%; /* Initially position it at the horizontal center */
+    transform: translate(-50%, -50%); /* Center the element */
+    width: 100vw; /* 100% of the viewport width */
     height: 100vh; /* 100% of the viewport height */
     object-fit: cover;
-    opacity: 0; /* Set the initial opacity to 0 */
-    transition: opacity 1s; /* Add a 1s transition for opacity */
-    animation: fadeIn 5s forwards; /* Apply the opacity transition to .lottie-container */
+    opacity: 1; /* Set the initial opacity to 0 */
+    transition: opacity 0.5s; /* Add a transition for opacity */
 }
+
+@media (max-width: 768px) {
+    .lottie-container {
+        display: block; /* Display the container when browser width is less than 768px */
+        top: auto; /* Remove top positioning */
+        bottom: 0; /* Position it at the bottom */
+        left: 50%; /* Center it horizontally */
+        transform: translateX(-50%); /* Center it horizontally */
+        width: 100vw; /* Occupy full width */
+        height: auto; /* Let height adjust automatically */
+    }
+}
+
+
+
+.lottie-container2 {
+    display: block; /* Initially show the container */
+    z-index: -1;
+    position: fixed; /* Make sure it's positioned absolutely */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1); /* Initially centered with normal scale */
+    width: 100%; /* 100% of the viewport width */
+    height: auto; /* 100% of the viewport height */
+    object-fit: cover;
+    opacity: 1; /* Set the initial opacity to 0 */
+    transition: transform 0.5s, opacity 0.5s; /* Add transitions for transform and opacity */
+}
+
+@media (max-width: 768px) {
+    .lottie-container2 {
+        display: block; /* Ensure the container is shown when browser width is less than 768px */
+        transform: translate(-50%, -50%) scale(1.5); /* Apply zoom effect for smaller screens */
+        opacity: 0; /* Hide the container */
+    }
+}
+
+
 
 @keyframes fadeIn {
     to {
@@ -557,6 +599,7 @@ noscript{
 }
 
 .landing-page-container{
+    
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -758,6 +801,10 @@ noscript{
               transform: scale3d(1, 1, 1);
     }
   }
+
+
+
+
   
 #info-para{
     width: 50%;
@@ -811,7 +858,7 @@ noscript{
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(150deg, #71cbff, #8000ff);
+    background-image: linear-gradient(150deg, #ff71ff, #7700ff);
     z-index: -1;
     left: 6px;
     top: 6px;
@@ -952,6 +999,16 @@ noscript{
 }
 
 .info-dp-section{
+     padding: 10%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+
+    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.233);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+/* border: 1px solid rgba(255, 255, 255, 0.3); */
+    
+    background-color: #0c0c0c0e;
     width: 100%;
     display: flex;
     margin-top: 30px;
@@ -978,6 +1035,7 @@ noscript{
 }
 .dp img{
     width: 300px;
+    border-radius: 10px;
 }
 .dp::before{
     content: "";
@@ -1097,8 +1155,18 @@ noscript{
     
 }
 .language-name{
-    border-bottom-left-radius: 10%;
-    background-color: rgb(26, 26, 26);
+
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+
+    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.233);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+/* border: 1px solid rgba(255, 255, 255, 0.3); */
+    
+    background-color: #0c0c0c0e;
+  
+  
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1107,20 +1175,20 @@ noscript{
     width: 45%;
     padding: 40px 30px;
     transform-style: preserve-3d;
-    box-shadow: 0px 10px 20px var(--color-shadowDark);
+   
     
 }
 
-.language-name::before{
+.project-box:after{
     content: "";
     position: absolute;
-    width: 30%;
+    width: 100%;
     height: 2px;
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 	background-size: 400% 400%;
 	animation: gradientforlanguage 5s ease infinite;
     top: 0;
-    transition-duration: .5s;
+    left: 0;
 }
 .language-name:hover::before{
     width: 100%;
@@ -1208,8 +1276,18 @@ noscript{
     width: 100%;
 }
 .project-box{
-    border-bottom-left-radius: 7%;
-    background-color: rgb(26, 26, 26);
+
+    /* From https://css.glass */
+  
+    background: rgba(255, 255, 255, 0.2);
+    border-bottom-left-radius: 16px;
+
+    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.233);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+/* border: 1px solid rgba(255, 255, 255, 0.3); */
+    
+    background-color: #0c0c0c0e;
     width: 100%;
     height: 400px;
     display: flex;

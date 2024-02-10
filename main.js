@@ -28,7 +28,18 @@ lottie.loadAnimation({
   renderer: "svg", // Choose the renderer (svg, canvas, html)
   loop: true, // Set animation loop
   autoplay: true, //  play automatically
-  path: "https://lottie.host/cbd10419-e54d-466b-8ed2-93837c69472f/RcJsFVAlZs.json", // Provide the URL of the animation JSON
+  path: "https://lottie.host/b8150c0f-2103-4f2b-ad35-6a558524f03e/uE1HjNYPkL.json", // Provide the URL of the animation JSON
+});
+
+
+const container2 = document.querySelector(".lottie-container2");
+// Load the Lottie animation from the provided URL
+lottie.loadAnimation({
+  container: container2, // Specify the container element
+  renderer: "svg", // Choose the renderer (svg, canvas, html)
+  loop: true, // Set animation loop
+  autoplay: true, //  play automatically
+  path: "https://lottie.host/b8150c0f-2103-4f2b-ad35-6a558524f03e/uE1HjNYPkL.json", // Provide the URL of the animation JSON
 });
 
 // preloader script ends here.........
